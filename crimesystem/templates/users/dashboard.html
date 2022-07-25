@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<!-- Hello, {{ user.username|default:'Guest' }}!
+
+{{form}} -->
+
+<div style="margin: auto; width:50%">
+  <h1>File Your case</h1>
+  <div class="col-auto"><br>
+    <form class="row row-cols-lg-auto g-3 align-items-center" method="post" enctype="multipart/form-data">
+       <!-- <label for="">Image uploads here</label>
+      <input type="file" class="form-control" id='stimg' name="stimge" value=""> -->
+      {% csrf_token %}
+      {{ form.as_p}}
+
+      <div class="col-12">
+      <button type="submit" name="button" class='btn btn-primary'>Report</button>
+      </div>
+    </form>
+    </div>
+    <span class="textarea" role="textbox" contenteditable>{{text}}</span>
+
+    <p>{{messg}}</p>
+    <p>{{messgr}}</p>
+
+  </div>
+{% endblock %}
